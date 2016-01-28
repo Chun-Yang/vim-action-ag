@@ -1,10 +1,9 @@
 # Instruction
-This plugin add an action `ga` to do vim searh.
-This only works in normal mode.
+This plugin map * to do Ag search in normal mode.
 
 # Example
 NOTE: [X] is the cursor
 ```
-var x = [E]xternalFunction()
-// 'gaw' is same as 'yw:Ag<C-V><CR>'
+var x = Ex[t]ernalFunction()
+// '*' is same as 'yiw:Ag<C-V><CR>'
 ```
