@@ -7,4 +7,21 @@ if exists("g:loaded_vim_ag_anything") || &cp || v:version < 700
 endif
 let g:loaded_vim_ag_anything = 1
 
-nnoremap ga :echom 'Install'<CR>
+function! s:Ag(type,...) abort
+  if a:type !=# "char"
+    return
+  endif
+
+  let reg_save = @@
+
+  " copy selected text to @@ register
+  silent exe "normal! `[v`]y"
+  echo @@
+  exec ':Ag "' . @@ . '"'
+
+  let @@ = reg_save
+endfunction
+
+nnoremap <silent> <Plug>AgAnything :<C-U>set opfunc=<SID>Ag<CR>g@
+
+nmap ga <Plug>AgAnything
