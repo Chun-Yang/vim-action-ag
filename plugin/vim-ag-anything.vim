@@ -16,11 +16,15 @@ function! s:Ag(type,...) abort
 
   " copy selected text to @@ register
   silent exe "normal! `[v`]y"
+  exe ":let @/='" . @@ . "'"
   exe ':Ag "' . @@ . '"'
+  normal! n
 
   let @@ = reg_save
 endfunction
 
-nnoremap <silent> <Plug>AgAnything :<C-U>set opfunc=<SID>Ag<CR>g@iw
+nnoremap <silent> <Plug>AgAnything :<C-U>set opfunc=<SID>Ag<CR>g@
+nnoremap <silent> <Plug>AgAnythingWord :<C-U>set opfunc=<SID>Ag<CR>g@iw
 
-nmap * <Plug>AgAnything
+nmap gag <Plug>AgAnything
+nmap * <Plug>AgAnythingWord
