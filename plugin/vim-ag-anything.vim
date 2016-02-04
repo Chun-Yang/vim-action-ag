@@ -23,9 +23,9 @@ function! s:Ag(type,...) abort
   let @@ = reg_save
 endfunction
 
-nnoremap <silent> <Plug>AgAnything :<C-U>set opfunc=<SID>Ag<CR>g@
 " NOTE: set hlsearch does not work in a function
+nnoremap <silent> <Plug>AgAnything     :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@
 nnoremap <silent> <Plug>AgAnythingWord :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@iw
 
 nmap gag <Plug>AgAnything
-nmap * <Plug>AgAnythingWord
+nmap *   <Plug>AgAnythingWord

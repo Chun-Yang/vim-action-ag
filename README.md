@@ -1,9 +1,12 @@
 # Instruction
-This plugin map * to do Ag search in normal mode.
+This plugin map gag to do Ag search in normal mode.
 
 # Example
 NOTE: [X] is the cursor
 ```
 var x = Ex[t]ernalFunction()
-// '*' is same as 'yiw:Ag<C-V><CR>'
+// `gagiw` to search the word, '*' is mapped to a shortcut for that.
+
+var y = 'search me'
+// `gai'` to search the words inside single quotes.
 ```
