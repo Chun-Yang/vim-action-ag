@@ -5,8 +5,8 @@ This plugin map gag to do Ag search in normal mode.
 NOTE: [X] is the cursor
 ```
 var x = Ex[t]ernalFunction()
-// `gagiw` to search the word, '*' is mapped to a shortcut for that.
+// gagiw to search the word, * is mapped to a shortcut for that.
 
 var y = 'search me'
-// `gai'` to search the words inside single quotes.
+// gagi' to search the words inside single quotes.
 ```

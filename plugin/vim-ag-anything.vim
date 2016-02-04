@@ -26,6 +26,8 @@ endfunction
 " NOTE: set hlsearch does not work in a function
 nnoremap <silent> <Plug>AgAnything     :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@
 nnoremap <silent> <Plug>AgAnythingWord :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@iw
+" TODO: add visule mode support
+" https://github.com/bronson/vim-visual-star-search
 
 nmap gag <Plug>AgAnything
 nmap *   <Plug>AgAnythingWord
