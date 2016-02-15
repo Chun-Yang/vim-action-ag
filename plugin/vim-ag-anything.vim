@@ -27,7 +27,7 @@ function! s:Ag(mode) abort
   let escaped = escape(@@, '$')
 
   " execute Ag command
-  exe ":Ag '" . escaped . "'"
+  exe ":Ag" "'".escaped."'"
 
   " go to the first search match
   normal! n
