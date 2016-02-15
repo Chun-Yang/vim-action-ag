@@ -1,6 +1,17 @@
-# Instruction
-This plugin map `gag` to do Ag search in normal mode.
+## Instruction
+This plugin map `gag` to do Ag search.
 
-# Example
-- `gagiw` to search the word, `*` is mapped to a shortcut for that.
-- `gagi'` to search the words inside single quotes.
+## Examples
+- Normal Mode
+  - `gagiw` to search the word
+  - `gagi'` to search the words inside single quotes.
+- Visual Mode
+  - `gag` to search the selected text
+
+## Recommanded Shortcuts
+```vimscript
+" use * to search current word in normal mode
+nmap * <Plug>AgActionWord
+" use * to search selected text in visual mode
+vmap * <Plug>AgActionVisual
+```

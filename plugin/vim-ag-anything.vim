@@ -2,32 +2,40 @@
 " Maintainer:   Chun Yang <http://github.com/Chun-Yang>
 " Version:      1.0
 
-if exists("g:loaded_vim_ag_anything") || &cp || v:version < 700
+if exists("g:loaded_vim_action_ag") || &cp || v:version < 700
   finish
 endif
-let g:loaded_vim_ag_anything = 1
+let g:loaded_vim_action_ag = 1
 
-function! s:Ag(type,...) abort
-  if a:type !=# "char"
-    return
-  endif
-
+function! s:Ag(mode) abort
+  " preserver @@ register
   let reg_save = @@
 
   " copy selected text to @@ register
-  silent exe "normal! `[v`]y"
+  if a:mode ==# 'v' || a:mode ==# ''
+    silent exe "normal! `<v`>y"
+  elseif a:mode ==# 'char'
+    silent exe "normal! `[v`]y"
+  else
+    return
+  endif
+
   exe ":let @/='" . @@ . "'"
+
+  " execute Ag command
   exe ':Ag "' . @@ . '"'
+
+  " go to the first search match
   normal! n
 
+  " recover @@ register
   let @@ = reg_save
 endfunction
 
 " NOTE: set hlsearch does not work in a function
-nnoremap <silent> <Plug>AgAnything     :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@
-nnoremap <silent> <Plug>AgAnythingWord :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@iw
-" TODO: add visule mode support
-" https://github.com/bronson/vim-visual-star-search
+vnoremap <silent> <Plug>AgActionVisual :<C-U>call <SID>Ag(visualmode())<CR>
+nnoremap <silent> <Plug>AgAction       :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@
+nnoremap <silent> <Plug>AgActionWord   :set hlsearch<CR>:<C-U>set opfunc=<SID>Ag<CR>g@iw
 
-nmap gag <Plug>AgAnything
-nmap *   <Plug>AgAnythingWord
+vmap gag <Plug>AgActionVisual
+nmap gag <Plug>AgAction
