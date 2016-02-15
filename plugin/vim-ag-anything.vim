@@ -20,10 +20,14 @@ function! s:Ag(mode) abort
     return
   endif
 
+  " prepare for search highlight
   exe ":let @/='" . @@ . "'"
 
+  " escape $ since it is very common in javascript and php
+  let escaped = escape(@@, '$')
+
   " execute Ag command
-  exe ':Ag "' . @@ . '"'
+  exe ":Ag '" . escaped . "'"
 
   " go to the first search match
   normal! n
