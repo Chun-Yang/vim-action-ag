@@ -1,3 +1,6 @@
+## Dependency
+https://github.com/rking/ag.vim
+
 ## Instruction
 This plugin map `gag` to do Ag search.
 
