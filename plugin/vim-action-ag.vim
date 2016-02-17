@@ -8,7 +8,7 @@ endif
 let g:loaded_vim_action_ag = 1
 
 " http://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions
-let g:vim_action_ag_escape_chars = get(g:, 'vim_action_ag_escape_chars', '.^$*+?()[{\\|')
+let g:vim_action_ag_escape_chars = get(g:, 'vim_action_ag_escape_chars', '#%.^$*+?()[{\\|')
 
 function! s:Ag(mode) abort
   " preserver @@ register

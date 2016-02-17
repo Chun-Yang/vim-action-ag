@@ -27,5 +27,5 @@ end of the line. Most of the time we use literal meaning of these characters.
 You can set escapes for these characters in `g:vim_action_ag_escape_chars`.
 By Default, this global variable is set like this:
 ```
-let g:vim_action_ag_escape_chars = '.^$*+?()[{\\|'
+let g:vim_action_ag_escape_chars = '#%.^$*+?()[{\\|'
 ```
