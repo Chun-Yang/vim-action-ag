@@ -27,8 +27,10 @@ function! s:Ag(mode) abort
   let escaped_for_vim = escape(@@, '/\')
   exe ":let @/='\\V".escaped_for_vim."'"
 
-  " escape special chars, % is file name in vim we need to escape that first
-  let escaped_for_ag = escape(@@, '%')
+  " escape special chars,
+  " % is file name in vim we need to escape that first
+  " # is secial in ag
+  let escaped_for_ag = escape(@@, '%#')
   let escaped_for_ag = escape(escaped_for_ag, g:vim_action_ag_escape_chars)
 
   " execute Ag command
