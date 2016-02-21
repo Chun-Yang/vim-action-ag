@@ -34,7 +34,8 @@ function! s:Ag(mode) abort
   let escaped_for_ag = escape(escaped_for_ag, g:vim_action_ag_escape_chars)
 
   " execute Ag command
-  exe ":Ag" "'".escaped_for_ag."'"
+  " '!' is used to NOT jump to the first match
+  exe ":Ag!" "'".escaped_for_ag."'"
 
   " go to the first search match
   normal! n
